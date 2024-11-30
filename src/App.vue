@@ -113,7 +113,7 @@ section {
   @media (max-width: 580px) {
     padding: 10px;
     height: 200px;
-    
+    border: 1px solid #632b20;
   }
 
   h3 {
