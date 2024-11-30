@@ -1,6 +1,25 @@
 <script setup>
+import { ref } from "vue";
 import coracaoOco from "./assets/coracao-borda.png"
 import coracao from "./assets/coracao.png"
+
+
+
+const sectionAtiva = ref(null);
+
+const coracoes = ref([
+  { id: 1, imagem: coracaoOco },
+  { id: 2, imagem: coracaoOco },
+  { id: 3, imagem: coracaoOco }
+]);
+
+// Função que muda apenas o coração específico
+const mudarImagem = (index) => {
+  coracoes.value[index].imagem = 
+    coracoes.value[index].imagem === coracaoOco ? coracao : coracaoOco;
+    
+}
+
 </script>
 
 <template>
@@ -10,29 +29,32 @@ import coracao from "./assets/coracao.png"
 </header>
 <main>
   <div class="container-principal">
-    <section>
+    <section :class="{ 'section-ativa': sectionAtiva === 1 }"
+    @click="sectionAtiva = 1">
         <div class="data-coracao">
             <p class="data">17 de ago, 2024</p>
             <!-- diretivas -->
             <!-- para renderizar um dado da logica, se for em uma tag usaremos {{  }}-->
              <!-- para renderizar em atributos v-bind, (:) é o atalho do v-bind -->
-            <img :src="coracaoOco" alt="">
+            <img :src="coracoes[0].imagem"  alt="imagem dinâmica, coraçaõ completo e incompleto" @click="mudarImagem(0)">
         </div>
         <h3>O que é linguagem de programação? Conheça as principais!</h3>
         <p class="paragrafos">Uma das mais populares vertentes da tecnologia da informação, a área de programação segue tendo muita demanda de trabalho justamente pela velocidade com que dispositivos tecnológicos vêm avançando.</p>
     </section>
-     <section>
+     <section :class="{ 'section-ativa': sectionAtiva === 2 }"
+     @click="sectionAtiva = 2">
         <div class="data-coracao">
             <p class="data">12 de jul, 2024</p>
-            <img :src="coracao" alt="">
+            <img :src="coracoes[1].imagem"  alt="imagem dinâmica, coraçaõ completo e incompleto" @click="mudarImagem(1)">
         </div>
         <h3>GitHub agora permite fazer login sem precisar de senha</h3>
         <p class="paragrafos">O GitHub anunciou nesta quarta-feira (12) o acesso a partir das passkeys, método de autenticação sem senhas. A novidade está disponível em uma versão beta pública e pode substituir a autenticação em dois fatores.</p>
     </section>
-    <section>
+    <section :class="{'section-ativa': sectionAtiva === 3 }"
+    @click="sectionAtiva = 3">
         <div class="data-coracao">
             <p class="data">21 de jun, 2024</p>
-            <img :src="coracao" alt="">
+            <img :src="coracoes[2].imagem"  alt="imagem dinâmica, coraçaõ completo e incompleto" @click="mudarImagem(2)">
         </div>
         <h3>Por que os hiperlinks são azuis em sua maioria?</h3>
         <p class="paragrafos">Quem navega na internet, certamente já percebeu que ela conta com diversos recursos para tornar a nossa vida mais fácil. Entre essas opções podemos mencionar os hiperlinks – uma palavra ou termo clicável que direciona o leitor.</p>
@@ -104,7 +126,7 @@ section {
   width: 100%;
   height: 150px;
   padding: 0 20px;
-  border: 1px solid #E07B67;
+  border: 1px solid #632b20;
   justify-content: center;
   background-color: #1C1C1C;
   border-radius: 8px;
@@ -123,6 +145,10 @@ section {
     
   }
 
+}
+
+.section-ativa {
+  border: 1px solid #E07B67;
 }
 
 .container-principal {
@@ -165,6 +191,11 @@ section {
 
   img {
     width: 3%;
+    cursor: pointer;
+
+    img:hover {
+      transform: scale(1.1);
+    }
 
     @media (max-width: 580px) {
       width: 6%;
