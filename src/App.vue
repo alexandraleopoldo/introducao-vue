@@ -1,0 +1,144 @@
+<script setup>
+import coracaoOco from "./assets/coracao-borda.png"
+import coracao from "./assets/coracao.png"
+</script>
+
+<template>
+<header>
+  <h1><span>Code</span>Lab</h1>
+  <input type="text" placeholder="Pesquisar no blog">
+</header>
+<main>
+  <div class="container-principal">
+    <section>
+        <div class="data-coracao">
+            <p class="data">17 de ago, 2024</p>
+            <!-- diretivas -->
+            <!-- para renderizar um dado da logica, se for em uma tag usaremos {{  }}-->
+             <!-- para renderizar em atributos v-bind, (:) é o atalho do v-bind -->
+            <img :src="coracaoOco" alt="">
+        </div>
+        <h3>O que é linguagem de programação? Conheça as principais!</h3>
+        <p class="paragrafos">Uma das mais populares vertentes da tecnologia da informação, a área de programação segue tendo muita demanda de trabalho justamente pela velocidade com que dispositivos tecnológicos vêm avançando.</p>
+    </section>
+     <section>
+        <div class="data-coracao">
+            <p class="data">12 de jul, 2024</p>
+            <img :src="coracao" alt="">
+        </div>
+        <h3>GitHub agora permite fazer login sem precisar de senha</h3>
+        <p class="paragrafos">O GitHub anunciou nesta quarta-feira (12) o acesso a partir das passkeys, método de autenticação sem senhas. A novidade está disponível em uma versão beta pública e pode substituir a autenticação em dois fatores.</p>
+    </section>
+    <section>
+        <div class="data-coracao">
+            <p class="data">21 de jun, 2024</p>
+            <img :src="coracao" alt="">
+        </div>
+        <h3>Por que os hiperlinks são azuis em sua maioria?</h3>
+        <p class="paragrafos">Quem navega na internet, certamente já percebeu que ela conta com diversos recursos para tornar a nossa vida mais fácil. Entre essas opções podemos mencionar os hiperlinks – uma palavra ou termo clicável que direciona o leitor.</p>
+    </section>
+  </div>
+</main>
+</template>
+
+<style scoped lang="scss">
+
+main {
+  display: flex;
+  width: 100%;
+  height: 80vh;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+
+header {
+  background-color: blanchedalmond;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 210px;
+  background-color:  #1C1C1C;
+  gap: 30px;
+
+  span {
+    color: #E07B67
+  }
+
+  h1 {
+    font-weight: 400;
+    font-size: 26px;
+  }
+
+  input {
+    width: 50%;
+    height: 30px;
+    background-color: #202024;
+    border: 2px solid #252529;
+    border-radius: 4px;
+    padding: 10px;
+    font-family: "Inter", serif;
+    
+  }
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 150px;
+  padding: 0 20px;
+  border: 1px solid #E07B67;
+  justify-content: center;
+  background-color: #1C1C1C;
+  border-radius: 8px;
+  gap: 6px;
+
+  h3 {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 10px 0;
+  }
+
+}
+
+.container-principal {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.paragrafos {
+  margin-bottom: 20px;
+  font-family: "Inter", serif;
+  line-height: 18px;
+  font-size: 14px;
+  font-weight: 200;
+  color: #AFABB6;
+
+}
+
+.data {
+  color: #E07B67;
+  font-size: 12px;
+  font-weight: 200;
+  
+}
+
+.data-coracao {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+
+  img {
+    width: 3%;
+  }
+}
+</style>
