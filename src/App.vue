@@ -52,6 +52,11 @@ main {
   flex-direction: column;
   justify-content: center;
   
+  @media (max-width: 580px) {
+    height: 100%;
+    margin-top: 30px;
+    
+  }
 }
 
 header {
@@ -63,6 +68,11 @@ header {
   height: 210px;
   background-color:  #1C1C1C;
   gap: 30px;
+
+  @media (max-width: 580px) {
+    height: 20vh;
+   
+  }
 
   span {
     color: #E07B67
@@ -82,6 +92,9 @@ header {
     padding: 10px;
     font-family: "Inter", serif;
     
+    @media (max-width: 580px) {
+      width: 80%;
+    }
   }
 }
 
@@ -97,10 +110,17 @@ section {
   border-radius: 8px;
   gap: 6px;
 
+  @media (max-width: 580px) {
+    padding: 10px;
+    height: 200px;
+    
+  }
+
   h3 {
     font-size: 16px;
     font-weight: 400;
     margin: 10px 0;
+    
   }
 
 }
@@ -113,6 +133,12 @@ section {
   justify-content: center;
   align-items: center;
   gap: 20px;
+
+  @media (max-width: 900px){
+    width: 90%;
+    gap: 30px;
+    margin-bottom: 20px;
+  }
 }
 
 .paragrafos {
@@ -139,6 +165,10 @@ section {
 
   img {
     width: 3%;
+
+    @media (max-width: 580px) {
+      width: 6%;
+    }
   }
 }
 </style>
